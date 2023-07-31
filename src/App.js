@@ -42,7 +42,7 @@ function List() {
             {tasks.map(task => (
                 <label className = "flex">
                     <input
-                        type = {"checkbox"}
+                        type = "checkbox"
                         checked = {task.isCompleted}
                         onChange = {e => {
                             handleChange(task.id, e.target.checked);
@@ -51,9 +51,10 @@ function List() {
                     <input
                         className = {task.isCompleted && "st"}
                         value = {task.value}
-                        onChange={ e => {
+                        onChange = { e => {
                             handleNameChange(task.id, e.target.value);
                         }}
+                        disabled = {task.isCompleted}
                     />
                 </label>
             ))}
