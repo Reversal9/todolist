@@ -3,14 +3,26 @@ import {useState} from 'react';
 
 function App() {
     const initialList = [
-        {id:0, value: "Do homework", isCompleted: true},
-        {id:1, value: "Do poop", isCompleted: false}
+        {id:-1, value: "Do homework", isCompleted: true},
+        {id:-2, value: "Do poop", isCompleted: false}
     ];
+    const [id, setId] = useState(0);
     const [tasks, setTasks] = useState(initialList);
 
     return (
         <div>
-            <h1>ToDoList</h1>
+            <div
+                className = "inline">
+                    <h1>ToDoList</h1>
+                    <button
+                        className = "add-button"
+                        onClick={() => {
+                            setTasks([...tasks,
+                                {id: id, value: "", isCompleted: false}])
+                            setId(id + 1);
+                    }}>+</button>
+            </div>
+
             <List tasks = {tasks} setTasks = {setTasks} />
         </div>
     );

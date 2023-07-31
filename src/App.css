@@ -37,6 +37,37 @@
   }
 }
 
+.inline {
+  display: flex;
+  align-items: center;
+}
+
+.add-button {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+}
+
 .strike {
   text-decoration: line-through;
 }
