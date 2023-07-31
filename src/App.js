@@ -2,21 +2,21 @@ import './App.css';
 import {useState} from 'react';
 
 function App() {
-    return (
-        <div>
-            <h1>ToDoList</h1>
-            <List />
-        </div>
-    );
-}
-
-function List() {
     const initialList = [
         {id:0, value: "Do homework", isCompleted: true},
         {id:1, value: "Do poop", isCompleted: false}
     ];
-
     const [tasks, setTasks] = useState(initialList);
+
+    return (
+        <div>
+            <h1>ToDoList</h1>
+            <List tasks = {tasks} setTasks = {setTasks} />
+        </div>
+    );
+}
+
+function List({tasks, setTasks}) {
     function handleChange(taskId, nextIsCompleted) {
         setTasks(tasks.map(task => {
             if (task.id === taskId) {

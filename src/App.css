@@ -43,6 +43,7 @@
 
 .ul, li {
   list-style: none;
+  display: flex;
 }
 
 .input {
@@ -51,8 +52,10 @@
   font-size: 16px;
   border: none;
   transition: box-shadow 0.3s ease;
+  display: block;
+  flex: 1;
 }
 
-input:not([type="checkbox"]):hover {
+.input:not([type="checkbox"]):hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
