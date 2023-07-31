@@ -1,25 +1,65 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+            <h1>ToDoList</h1>
+            <List />
+        </div>
+    );
+}
+
+function List() {
+    const initialList = [
+        {id:0, value: "Do homework", isCompleted: true},
+        {id:1, value: "Do poop", isCompleted: false}
+    ];
+
+    const [tasks, setTasks] = useState(initialList);
+    function handleChange(taskId, nextIsCompleted) {
+        setTasks(tasks.map(task => {
+            if (task.id === taskId) {
+                return {...task, isCompleted: nextIsCompleted};
+            }
+
+            return task;
+        }));
+    }
+
+    function handleNameChange(taskId, nextValue) {
+        setTasks(tasks.map(task => {
+            if (task.id === taskId) {
+                return {...task, value: nextValue};
+            }
+
+            return task;
+        }));
+    }
+
+    return (
+        <ul>
+            {tasks.map(task => (
+                <label className = "flex">
+                    <input
+                        type = {"checkbox"}
+                        checked = {task.isCompleted}
+                        onChange = {e => {
+                            handleChange(task.id, e.target.checked);
+                        }}
+                    />
+                    <div className = {task.isCompleted && "st"}>
+                        <input
+                            value = {task.value}
+                            onChange={ e => {
+                                handleNameChange(task.id, e.target.value);
+                            }}
+                        />
+                    </div>
+                </label>
+            ))}
+        </ul>
+    );
 }
 
 export default App;
