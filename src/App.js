@@ -48,14 +48,13 @@ function List() {
                             handleChange(task.id, e.target.checked);
                         }}
                     />
-                    <div className = {task.isCompleted && "st"}>
-                        <input
-                            value = {task.value}
-                            onChange={ e => {
-                                handleNameChange(task.id, e.target.value);
-                            }}
-                        />
-                    </div>
+                    <input
+                        className = {task.isCompleted && "st"}
+                        value = {task.value}
+                        onChange={ e => {
+                            handleNameChange(task.id, e.target.value);
+                        }}
+                    />
                 </label>
             ))}
         </ul>
