@@ -40,7 +40,7 @@ function List() {
     return (
         <ul>
             {tasks.map(task => (
-                <label className = "flex">
+                <li>
                     <input
                         type = "checkbox"
                         checked = {task.isCompleted}
@@ -49,14 +49,14 @@ function List() {
                         }}
                     />
                     <input
-                        className = {task.isCompleted && "st"}
+                        className = {task.isCompleted ? "strike input" : "input"}
                         value = {task.value}
                         onChange = { e => {
                             handleNameChange(task.id, e.target.value);
                         }}
                         disabled = {task.isCompleted}
                     />
-                </label>
+                </li>
             ))}
         </ul>
     );

@@ -37,10 +37,22 @@
   }
 }
 
-.st {
+.strike {
   text-decoration: line-through;
 }
 
-.flex {
-  display: flex;
+.ul, li {
+  list-style: none;
+}
+
+.input {
+  outline: none;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  transition: box-shadow 0.3s ease;
+}
+
+input:not([type="checkbox"]):hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
