@@ -9,6 +9,12 @@ function App() {
     const [id, setId] = useState(0);
     const [tasks, setTasks] = useState(initialList);
 
+    function handleAddButton() {
+        setTasks([...tasks,
+            {id: id, value: "", isCompleted: false}])
+        setId(id + 1);
+    }
+
     return (
         <div>
             <div
@@ -17,13 +23,16 @@ function App() {
                     <button
                         className = "add-button"
                         onClick={() => {
-                            setTasks([...tasks,
-                                {id: id, value: "", isCompleted: false}])
-                            setId(id + 1);
-                    }}>+</button>
+                            handleAddButton();
+                        }}>
+                        +
+                    </button>
             </div>
 
-            <List tasks = {tasks} setTasks = {setTasks} />
+            <List
+                tasks = {tasks}
+                setTasks = {setTasks}
+            />
         </div>
     );
 }
