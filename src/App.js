@@ -58,10 +58,21 @@ function List({tasks, setTasks}) {
         }));
     }
 
+    function handleDeleteButton(taskId) {
+        setTasks(tasks.filter(task => task.id !== taskId));
+    }
+
     return (
         <ul>
             {tasks.map(task => (
                 <li>
+                    <button
+                        className = "delete-button"
+                        onClick = {() => {
+                            handleDeleteButton(task.id);
+                        }}>
+                        -
+                    </button>
                     <input
                         type = "checkbox"
                         checked = {task.isCompleted}
